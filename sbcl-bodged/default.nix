@@ -2,8 +2,9 @@ with import <nixpkgs> {};
 
 stdenv.mkDerivation {
   name = "sbcl-bodged-1.0.0";
-  builder = ./builder.sh;
-  sbcl = pkgs.sbcl;
+  builder = ../bodge-builder.sh;
+  appName = "sbcl";
+  appPath = lib.concatStrings [ pkgs.sbcl "/bin/sbcl" ];
   libPath = lib.makeLibraryPath [ pkgs.libGL
                                   pkgs.pulseaudio
                                   xorg.libXxf86vm
