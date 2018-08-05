@@ -5,7 +5,8 @@ stdenv.mkDerivation {
   builder = ../bodge-builder.sh;
   appName = "sbcl";
   appPath = lib.concatStrings [ pkgs.sbcl "/bin/sbcl" ];
-  libPath = lib.makeLibraryPath [ pkgs.libGL
+  libPath = lib.makeLibraryPath [ pkgs.zlib
+                                  pkgs.libGL
                                   pkgs.pulseaudio
                                   xorg.libXxf86vm
                                   xorg.libX11
